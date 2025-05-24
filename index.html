@@ -5,88 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reece Dobro Portfolio</title>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Jura&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: 'Source Sans 3', sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
-      line-height: 1.6;
+      background-color: #f9f9f9;
     }
 
     header {
-      text-align: center;
-      padding: 100px 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 100px 60px 40px;
       background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideFadeIn 1s ease-out forwards;
     }
 
-    header h1 {
-      font-size: 4rem;
+    @keyframes slideFadeIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .text-content h1 {
+      font-size: 2.8rem;
       font-weight: 700;
+      margin: 0;
     }
 
-    header p {
+    .text-content p {
       font-family: 'Jura', sans-serif;
-      font-size: 1.25rem;
-      color: #777;
+      font-size: 1rem;
+      color: #555;
       margin-top: 0.5rem;
       letter-spacing: 1px;
     }
 
-    section {
-      padding: 60px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-    }
-
-    .project {
-      margin-bottom: 30px;
-    }
-
-    .project h3 {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background-color: #fff;
-      color: #666;
-      border-top: 1px solid #ccc;
-    }
-
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      .text-content {
+        align-items: center;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-    <h1>Reece Dobro</h1>
-    <p>Passion · Purpose · Progress</p>
+    <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic" />
+    <div class="text-content">
+      <h1>Reece Dobro</h1>
+      <p>Creator | Inventor | Problem Solver</p>
+    </div>
   </header>
 
   <section id="about">
