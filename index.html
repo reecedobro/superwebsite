@@ -3,119 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reece Dobro Portfolio</title>
+  <title>Portsfolio</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Jura&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Source Sans 3', sans-serif;
-      background-color: #f9f9f9;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    header {
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: 'Jura', sans-serif;
+      height: 100vh;
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 100px 60px 40px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: slideFadeIn 1s ease-out forwards;
+      justify-content: center;
+      padding: 40px;
+      overflow: hidden;
     }
 
-    @keyframes slideFadeIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeIn 2s ease-in-out;
+      max-width: 1400px;
+      width: 100%;
     }
 
     .text-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      flex: 1;
+      animation: fadeInLeft 2s ease-in-out;
     }
 
     .text-content h1 {
-      font-size: 2.8rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8vw;
       font-weight: 700;
-      margin: 0;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      line-height: 1;
     }
 
     .text-content p {
-      font-family: 'Jura', sans-serif;
-      font-size: 1rem;
-      color: #555;
-      margin-top: 0.5rem;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      color: #cbd5e1;
     }
 
-    @media (max-width: 600px) {
-      header {
+    .profile-pic {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      animation: fadeInRight 2s ease-in-out;
+      flex-shrink: 0;
+      margin-left: 40px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      0% { opacity: 0; transform: translateX(30px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 800px) {
+      .container {
         flex-direction: column;
-        align-items: center;
         text-align: center;
       }
 
-      .text-content {
-        align-items: center;
+      .text-content h1 {
+        font-size: 12vw;
+      }
+
+      .profile-pic {
+        margin-top: 20px;
+        margin-left: 0;
       }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic" />
+  <div class="container">
     <div class="text-content">
-      <h1>Reece Dobro</h1>
-      <p>Creator | Inventor | Problem Solver</p>
+      <h1>Your Name</h1>
+      <p>Creator | Inventor | Engineer</p>
     </div>
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm Reece, a passionate creator and inventor with a drive for solving real-world problems through design and technology. I enjoy blending engineering, creativity, and logic to build things that make an impact.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Smart Solar Tracker</h3>
-      <p>A solar tracking system using microcontrollers to increase energy efficiency. Designed, programmed, and tested the entire system.</p>
-    </div>
-    <div class="project">
-      <h3>Custom PCB for Power Distribution</h3>
-      <p>Designed and programmed a custom PCB to manage and monitor power usage in a low-voltage solar power setup.</p>
-    </div>
-    <div class="project">
-      <h3>Robotics Tournament Management</h3>
-      <p>Led technical operations at Union County robotics events, handling setup, troubleshooting, and live timing systems.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out!</p>
-    <p>Email: <a href="mailto:reece@example.com">reece@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/reecedobro" target="_blank">linkedin.com/in/reecedobro</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 Reece Dobro. All rights reserved.
-  </footer>
-
+    <img src="images/profile.png" alt="Profile Picture" class="profile-pic" />
+  </div>
 </body>
 </html>
