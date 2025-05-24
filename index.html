@@ -2,273 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reece Dobro Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Reset & base */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      margin: 0; padding: 0;
     }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: #f0f2f5;
       color: #333;
+      line-height: 1.6;
     }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 40px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-family: 'Jura', sans-serif;
+      font-size: 1.25rem;
+      color: #777;
+      margin-top: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .project {
+      margin-bottom: 30px;
+    }
+
+    .project h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #fff;
+      color: #666;
+      border-top: 1px solid #ccc;
+    }
+
     a {
       color: #0077cc;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
-    }
-
-    /* Header */
-    header {
-      background: #222;
-      color: white;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    header h1 {
-      font-size: 1.5rem;
-      letter-spacing: 2px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav li {
-      font-weight: 600;
-    }
-
-    /* Hero Banner */
-    #hero {
-      background: url('https://picsum.photos/1200/400?blur=2') no-repeat center center/cover;
-      color: white;
-      padding: 6rem 2rem;
-      text-align: center;
-      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.4);
-    }
-    #hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    #hero p {
-      font-size: 1.3rem;
-      font-weight: 300;
-    }
-
-    /* Sections */
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    section h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-      color: #0077cc;
-    }
-
-    /* About */
-    #about p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #444;
-    }
-
-    /* Projects */
-    #projects .project-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 1.8rem;
-    }
-    .project {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-    }
-    .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
-    }
-    .project img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .project-content {
-      padding: 1rem;
-      flex-grow: 1;
-    }
-    .project-content h3 {
-      margin-bottom: 0.8rem;
-      color: #222;
-    }
-    .project-content p {
-      color: #555;
-      font-size: 0.95rem;
-      flex-grow: 1;
-    }
-    .project-content a {
-      display: inline-block;
-      margin-top: 1rem;
-      font-weight: 600;
-      color: #0077cc;
-    }
-
-    /* Contact */
-    #contact form {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    #contact input, #contact textarea {
-      padding: 0.7rem 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    #contact button {
-      background: #0077cc;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.2rem;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    #contact button:hover {
-      background: #005fa3;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      #hero h2 {
-        font-size: 2.2rem;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Your Name</h1>
-  <nav>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <h1>Reece Dobro</h1>
+    <p>Passion · Purpose · Progress</p>
+  </header>
 
-<section id="hero">
-  <h2>Hello, I’m Your Name</h2>
-  <p>Web Developer | Designer | Problem Solver</p>
-</section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Reece, a passionate creator and inventor with a drive for solving real-world problems through design and technology. I enjoy blending engineering, creativity, and logic to build things that make an impact.</p>
+  </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I’m a passionate developer who loves crafting clean and beautiful websites.
-    With skills in HTML, CSS, and JavaScript, I build responsive and user-friendly experiences.
-    I enjoy learning new technologies and solving problems creatively.
-  </p>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="project-list">
+  <section id="projects">
+    <h2>Projects</h2>
     <div class="project">
-      <img src="https://picsum.photos/id/1018/400/300" alt="Project 1" />
-      <div class="project-content">
-        <h3>Project One</h3>
-        <p>A web app that helps users track their tasks and increase productivity.</p>
-        <a href="#">View Project</a>
-      </div>
+      <h3>Smart Solar Tracker</h3>
+      <p>A solar tracking system using microcontrollers to increase energy efficiency. Designed, programmed, and tested the entire system.</p>
     </div>
     <div class="project">
-      <img src="https://picsum.photos/id/1021/400/300" alt="Project 2" />
-      <div class="project-content">
-        <h3>Project Two</h3>
-        <p>A portfolio website template designed for creatives and freelancers.</p>
-        <a href="#">View Project</a>
-      </div>
+      <h3>Custom PCB for Power Distribution</h3>
+      <p>Designed and programmed a custom PCB to manage and monitor power usage in a low-voltage solar power setup.</p>
     </div>
     <div class="project">
-      <img src="https://picsum.photos/id/1025/400/300" alt="Project 3" />
-      <div class="project-content">
-        <h3>Project Three</h3>
-        <p>An e-commerce site with a clean design and smooth user experience.</p>
-        <a href="#">View Project</a>
-      </div>
+      <h3>Robotics Tournament Management</h3>
+      <p>Led technical operations at Union County robotics events, handling setup, troubleshooting, and live timing systems.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <h2>Contact Me</h2>
-  <form id="contactForm">
-    <input type="text" id="name" name="name" placeholder="Your Name" required />
-    <input type="email" id="email" name="email" placeholder="Your Email" required />
-    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Feel free to reach out!</p>
+    <p>Email: <a href="mailto:reece@example.com">reece@example.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/reecedobro" target="_blank">linkedin.com/in/reecedobro</a></p>
+  </section>
 
-<footer>
-  &copy; 2025 Your Name. All rights reserved.
-</footer>
-
-<script>
-  // Basic contact form submission simulation
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thanks for reaching out! I will get back to you soon.');
-    this.reset();
-  });
-</script>
+  <footer>
+    &copy; 2025 Reece Dobro. All rights reserved.
+  </footer>
 
 </body>
 </html>
