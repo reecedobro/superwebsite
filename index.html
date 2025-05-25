@@ -2,13 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
   <style>
+	  .image-row {
+	  background-color: #0f172a;
+	  padding: 40px;
+	  text-align: center;
+	  animation: fadeIn 2s ease-in-out;
+	}
+
+	.image-container {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  gap: 20px;
+	}
+
+	.image-container img {
+	  width: 120px;
+	  height: 120px;
+	  object-fit: cover;
+	  border-radius: 8px;
+	  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+	  transition: transform 0.3s ease;
+	}
+
+	.image-container img:hover {
+	  transform: scale(1.05);
+	}
     * {
       margin: 0;
       padding: 0;
@@ -19,24 +45,30 @@
       background: #0f172a;
       color: white;
       font-family: 'Jura', sans-serif;
-      height: 100vh;
+      line-height: 1.6;
+    }
+
+    .main-section {
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px;
+      padding: 60px 40px 40px;
     }
 
     .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      animation: fadeIn 2s ease-in-out;
-      width: 100%;
+      flex-wrap: wrap;
       max-width: 1400px;
+      width: 100%;
+      animation: fadeIn 2s ease-in-out;
     }
 
     .text-content {
       flex: 1;
+      min-width: 300px;
       animation: fadeInLeft 2s ease-in-out;
     }
 
@@ -63,6 +95,50 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       animation: fadeInRight 2s ease-in-out;
       margin-left: 60px;
+    }
+
+    .projects {
+      background-color: #1e293b;
+      padding: 60px 40px;
+    }
+
+    .projects h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background-color: #334155;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      background-color: #475569;
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+      color: #cbd5e1;
     }
 
     @keyframes fadeIn {
@@ -100,12 +176,45 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="text-content">
-      <h1>Your Name</h1>
-      <p>Creator | Inventor | Engineer</p>
+  <!-- Hero Section -->
+  <section class="main-section">
+    <div class="container">
+      <div class="text-content">
+        <h1>Reece M. Dobro</h1>
+        <p>Passion. Purpose. Progress.</p>
+      </div>
+      <img src="images/profile.png" alt="Profile Picture" class="profile-pic" />
     </div>
-    <img src="your-profile.jpg" alt="Profile Picture" class="profile-pic" />
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Smart Mirror</h3>
+        <p>A Raspberry Pi-powered mirror that displays weather, time, and news.</p>
+      </div>
+      <div class="project-card">
+        <h3>Robotics Controller</h3>
+        <p>Custom PCB and software for autonomous robotic arm with Python integration.</p>
+      </div>
+      <div class="project-card">
+        <h3>Solar Power Monitor</h3>
+        <p>Web dashboard to monitor solar panel data in real time with IoT integration.</p>
+      </div>
+    </div>
+  </section>
+  <section class="image-row">
+  <div class="image-container">
+    <img src="img1.jpg" alt="Project 1">
+    <img src="img2.jpg" alt="Project 2">
+    <img src="img3.jpg" alt="Project 3">
+    <img src="img4.jpg" alt="Project 4">
+    <img src="img5.jpg" alt="Project 5">
+    <img src="img6.jpg" alt="Project 6">
+    <img src="img7.jpg" alt="Project 7">
   </div>
+</section>
 </body>
 </html>
