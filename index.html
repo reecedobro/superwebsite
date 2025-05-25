@@ -40,19 +40,22 @@
     }
 
     .text-area h1 {
-      font-size: 7vw;
+      font-size: clamp(2rem, 8vw, 6rem);
       font-family: 'Montserrat', sans-serif;
+      white-space: nowrap;
       animation: fadeSlideIn 1s ease forwards;
       animation-delay: 0.5s;
+	  color: #ffffff;
     }
 
     .text-area p {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       margin-top: 0.5rem;
       font-family: 'Jura', sans-serif;
       animation: fadeSlideIn 1s ease forwards;
       animation-delay: 1s;
       opacity: 0;
+	  color: #ffffff;
     }
 
     @keyframes fadeSlideIn {
@@ -90,12 +93,12 @@
 <body>
 
   <div class="hero">
-    <div class="text-area">T
+    <div class="text-area">
       <h1>REECE M. DOBRO</h1>
-      <p>Passion. Purpose. Progress.</p>
+      <p>Purpose. Progress. Passion.</p>
     </div>
     <div class="image-area">
-      <img id="profile" src="images/profile.jpg" alt="Profile Picture" />
+      <img id="profile" src="images/profile.png" alt="Profile Picture" />
     </div>
   </div>
 
