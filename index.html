@@ -2,170 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reece M. Dobro </title>
-  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&family=Source+Sans+3:wght@900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reece Dobro Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Jura:wght@400&display=swap" rel="stylesheet">
+
   <style>
-    body {
+    * {
       margin: 0;
-      background-color: #0f172a;
-      font-family: 'Source Sans 3', sans-serif;
-      color: white;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #ffffff;
+      font-family: 'Jura', sans-serif;
       overflow-x: hidden;
     }
 
-    .hero-container {
+    .hero {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      padding: 40px;
+      padding: 2rem;
     }
 
     .text-area {
       flex: 1;
-      max-width: 60%;
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
+      transform: translateX(-100px);
+      animation: fadeSlideIn 1.2s ease forwards;
+      animation-delay: 0.5s;
     }
 
-    .text-area.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .text-area h1 {
+      font-size: 7vw;
+      font-family: 'Montserrat', sans-serif;
+      animation: fadeSlideIn 1s ease forwards;
+      animation-delay: 0.5s;
     }
 
-    .name {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 6vw;
-      margin: 0;
-    }
-
-    .subtitle {
+    .text-area p {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
       font-family: 'Jura', sans-serif;
-      font-size: 1.5vw;
-      color: #94a3b8;
-    }
-
-    .profile {
-      flex: 0 0 auto;
-      width: 280px;
-      height: 280px;
-      margin-left: 60px;
-      border-radius: 12px;
-      object-fit: cover;
+      animation: fadeSlideIn 1s ease forwards;
+      animation-delay: 1s;
       opacity: 0;
-      transition: opacity 1s ease-in-out;
     }
 
-    .profile-pic.visible {
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .image-area {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-area img {
+      width: 70%;
+      max-width: 400px;
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .image-area img.visible {
       opacity: 1;
     }
 
     .projects {
-      padding: 60px 40px;
-      background-color: #1e293b;
-    }
-
-    .projects h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-    }
-
-    .project-grid {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .project-card {
-      flex: 1 1 250px;
-      background-color: #334155;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .image-row {
-      background-color: #0f172a;
-      padding: 40px;
+      padding: 4rem 2rem;
       text-align: center;
     }
 
-    .image-container {
+    .projects h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .project-gallery {
       display: flex;
-      flex-wrap: wrap;
+      gap: 1rem;
       justify-content: center;
-      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .image-container img {
-      width: 120px;
-      height: 120px;
+    .project-gallery img {
+      width: 150px;
+      height: 150px;
       object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s ease;
+      border-radius: 10px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
-    .image-container img:hover {
-      transform: scale(1.05);
+    .project-gallery img.visible {
+      opacity: 1;
+      transform: scale(1);
     }
   </style>
 </head>
+
 <body>
-
-  <div class="hero-container">
+  <section class="hero">
     <div class="text-area" id="text-area">
-      <h1 class="name">Reece M. Dobro</h1>
-      <p class="subtitle">Passion. Purpose. Progress.</p>
+      <h1>Reece Dobro</h1>
+      <p id="subtitle">Creator | Inventor | Engineer</p>
     </div>
-    <img src="images/profile.png" alt="Profile Picture" class="profile" id="profile">
-  </div>
-
-  <!-- Projects Section -->
-  <section class="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Smart Mirror</h3>
-        <p>A Raspberry Pi-powered mirror that displays weather, time, and news.</p>
-      </div>
-      <div class="project-card">
-        <h3>Robotics Controller</h3>
-        <p>Custom PCB and software for autonomous robotic arm with Python integration.</p>
-      </div>
-      <div class="project-card">
-        <h3>Solar Power Monitor</h3>
-        <p>Web dashboard to monitor solar panel data in real time with IoT integration.</p>
-      </div>
+    <div class="image-area">
+      <img id="profile-pic" src="images/profile.png" alt="Profile Picture"/>
     </div>
   </section>
 
-  <!-- Image Row Section -->
-  <section class="image-row">
-    <div class="image-container">
-      <img src="img1.jpg" alt="Project 1">
-      <img src="img2.jpg" alt="Project 2">
-      <img src="img3.jpg" alt="Project 3">
-      <img src="img4.jpg" alt="Project 4">
-      <img src="img5.jpg" alt="Project 5">
-      <img src="img6.jpg" alt="Project 6">
-      <img src="img7.jpg" alt="Project 7">
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="project-gallery" id="gallery">
+      <img src="images/proj1.jpg" alt="Project 1"/>
+      <img src="images/proj2.jpg" alt="Project 2"/>
+      <img src="images/proj3.jpg" alt="Project 3"/>
+      <img src="images/proj4.jpg" alt="Project 4"/>
+      <img src="images/proj5.jpg" alt="Project 5"/>
+      <img src="images/proj6.jpg" alt="Project 6"/>
+      <img src="images/proj7.jpg" alt="Project 7"/>
     </div>
   </section>
 
   <script>
-    const profile = document.getElementById('profile');
-    const textArea = document.getElementById('text-area');
+    const profilePic = document.getElementById('profile-pic');
+    const galleryImgs = document.querySelectorAll('#gallery img');
 
-    profile.onload = () => {
-      profile.classList.add('visible');
+    profilePic.onload = () => {
+      profilePic.classList.add('visible');
+
       setTimeout(() => {
-        textArea.classList.add('visible');
-      }, 400); // wait 
-    };
-  </script>
+        document.getElementById('subtitle').style.opacity = '1';
+      }, 1000);
 
+      setTimeout(() => {
+        galleryImgs.forEach((img, i) => {
+          setTimeout(() => {
+            img.classList.add('visible');
+          }, i * 150);
+        });
+      }, 1500);
+    };
+
+    if (profilePic.complete) {
+      profilePic.onload();
+    }
+  </script>
 </body>
 </html>
