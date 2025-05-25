@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reece Dobro Portfolio</title>
+  <title>Reece M. Dobro</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Jura:wght@400&display=swap" rel="stylesheet">
@@ -16,8 +16,7 @@
     }
 
     body {
-      background-color: #0f0f0f;
-      color: #ffffff;
+      background-color: #0f172a;
       font-family: 'Jura', sans-serif;
       overflow-x: hidden;
     }
@@ -25,9 +24,10 @@
     .hero {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       height: 100vh;
-      padding: 2rem;
+      padding: 2rem 5vw;
+      gap: 2rem;
     }
 
     .text-area {
@@ -36,6 +36,7 @@
       transform: translateX(-100px);
       animation: fadeSlideIn 1.2s ease forwards;
       animation-delay: 0.5s;
+      padding-left: 2rem;
     }
 
     .text-area h1 {
@@ -68,8 +69,9 @@
     .image-area {
       flex: 1;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
+      padding-right: 2rem;
     }
 
     .image-area img {
@@ -83,89 +85,26 @@
     .image-area img.visible {
       opacity: 1;
     }
-
-    .projects {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .projects h2 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .project-gallery {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .project-gallery img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px;
-      opacity: 0;
-      transform: scale(0.9);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .project-gallery img.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
   </style>
 </head>
-
 <body>
-  <section class="hero">
-    <div class="text-area" id="text-area">
-      <h1>Reece Dobro</h1>
-      <p id="subtitle">Creator | Inventor | Engineer</p>
+
+  <div class="hero">
+    <div class="text-area">
+      <h1>REECE M. DOBRO</h1>
+      <p>Passion. Purpose. Progress.</p>
     </div>
     <div class="image-area">
-      <img id="profile-pic" src="images/profile.png" alt="Profile Picture"/>
+      <img id="profile" src="images/profile.jpg" alt="Profile Picture" />
     </div>
-  </section>
-
-  <section class="projects">
-    <h2>Projects</h2>
-    <div class="project-gallery" id="gallery">
-      <img src="images/proj1.jpg" alt="Project 1"/>
-      <img src="images/proj2.jpg" alt="Project 2"/>
-      <img src="images/proj3.jpg" alt="Project 3"/>
-      <img src="images/proj4.jpg" alt="Project 4"/>
-      <img src="images/proj5.jpg" alt="Project 5"/>
-      <img src="images/proj6.jpg" alt="Project 6"/>
-      <img src="images/proj7.jpg" alt="Project 7"/>
-    </div>
-  </section>
+  </div>
 
   <script>
-    const profilePic = document.getElementById('profile-pic');
-    const galleryImgs = document.querySelectorAll('#gallery img');
-
-    profilePic.onload = () => {
-      profilePic.classList.add('visible');
-
-      setTimeout(() => {
-        document.getElementById('subtitle').style.opacity = '1';
-      }, 1000);
-
-      setTimeout(() => {
-        galleryImgs.forEach((img, i) => {
-          setTimeout(() => {
-            img.classList.add('visible');
-          }, i * 150);
-        });
-      }, 1500);
+    const profile = document.getElementById('profile');
+    profile.onload = () => {
+      profile.classList.add('visible');
     };
-
-    if (profilePic.complete) {
-      profilePic.onload();
-    }
   </script>
+
 </body>
 </html>
