@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reece M. Dobro</title>
+  <title>Reece M. Dobro - Portfolio</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Jura:wght@400&display=swap" rel="stylesheet">
 
   <style>
+    /* Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -19,19 +19,23 @@
       background-color: #0f172a;
       font-family: 'Jura', sans-serif;
       overflow-x: hidden;
+      color: #ffffff; /* Set default text color */
     }
 
+    /* Hero Section */
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 100vh;
+      min-height: 100vh; /* Use min-height for flexibility */
       padding: 2rem 5vw;
       gap: 2rem;
+      flex-wrap: wrap; /* Allows wrapping on smaller screens */
     }
 
     .text-area {
       flex: 1;
+      min-width: 300px; /* Ensures text area doesn't get too small */
       opacity: 0;
       transform: translateX(-100px);
       animation: fadeSlideIn 1.2s ease forwards;
@@ -43,9 +47,7 @@
       font-size: clamp(2rem, 8vw, 6rem);
       font-family: 'Montserrat', sans-serif;
       white-space: nowrap;
-      animation: fadeSlideIn 1s ease forwards;
-      animation-delay: 0.5s;
-	  color: #ffffff;
+      color: #ffffff;
     }
 
     .text-area p {
@@ -55,7 +57,7 @@
       animation: fadeSlideIn 1s ease forwards;
       animation-delay: 1s;
       opacity: 0;
-	  color: #ffffff;
+      color: #ffffff;
     }
 
     @keyframes fadeSlideIn {
@@ -69,44 +71,234 @@
       }
     }
 
+    /* New animation for image coming from right */
+    @keyframes fadeSlideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     .image-area {
       flex: 1;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       padding-right: 2rem;
+      min-width: 250px; /* Ensures image area doesn't get too small */
+      opacity: 0; /* Hidden by default for animation */
+      transform: translateX(100px); /* Start off-screen to the right */
+      animation: fadeSlideInRight 1.2s ease forwards; /* Apply new animation */
+      animation-delay: 0.7s; /* Slightly delayed from text */
     }
 
     .image-area img {
-      width: 70%;
-      max-width: 400px;
-      border-radius: 20px;
-      opacity: 0;
-      transition: opacity 1s ease;
+      width: 50%; /* Made smaller */
+      max-width: 250px; /* Adjusted max-width for smaller size */
+      border-radius: 50%; /* Changed to circular */
+      /* Removed opacity and transition here as animation is on parent .image-area */
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3), /* White and more subtle glow */
+                  0 10px 30px rgba(0,0,0,0.5); /* Existing subtle shadow */
+      aspect-ratio: 1 / 1; /* Ensures circular shape for non-square images */
+      object-fit: cover; /* Ensures image covers the circular area */
     }
 
-    .image-area img.visible {
+    /* Removed .image-area img.visible as animation handles visibility */
+
+    /* --- About Me Section --- */
+    .about-me {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 5vw; /* Generous padding top/bottom and side */
+      background-color: #1e293b; /* Slightly lighter dark for contrast with hero */
+      gap: 3rem; /* Space between text and image */
+      flex-wrap: wrap; /* Allows wrapping on smaller screens */
+      min-height: 70vh; /* Ensure section takes up a good amount of space */
+    }
+
+    .about-content {
+      flex: 2; /* Takes up more space than the image */
+      min-width: 300px; /* Minimum width for text */
+      max-width: 700px; /* Max width to keep lines readable */
+      text-align: left;
+    }
+
+    .about-content h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+
+    .about-content p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      color: #cbd5e1; /* Slightly lighter text for readability on dark background */
+    }
+
+    .about-image {
+      flex: 1; /* Takes up less space than the text */
+      display: flex;
+      justify-content: center; /* Center the image */
+      align-items: center;
+      min-width: 250px; /* Minimum width for image */
+    }
+
+    .about-image img {
+      width: 90%; /* Adjust image width as needed */
+      max-width: 400px; /* Max width for consistency */
+      border-radius: 15px; /* Slightly less rounded than profile for variety */
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Subtle shadow */
+      opacity: 0; /* Hidden by default for fade-in effect */
+      transition: opacity 1s ease-out; /* Smooth transition for fade-in */
+    }
+
+    /* Class added by JavaScript when image is in view */
+    .about-image img.fade-in-on-scroll.visible {
       opacity: 1;
+    }
+
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1e293b;
+      color: #cbd5e1; /* Lighter text for footer */
+      font-size: 0.9rem;
+      margin-top: 2rem; /* Add some space above the footer */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        text-align: center;
+        padding-left: 2rem; /* Remove padding from text area on smaller screens */
+        padding-right: 2rem;
+      }
+
+      .text-area {
+        padding-left: 0;
+        padding-right: 0;
+        transform: translateX(0); /* Remove slide-in for smaller screens if it looks off */
+        animation: none; /* Remove animation if it conflicts with stacking */
+        opacity: 1;
+      }
+
+      .text-area h1 {
+        white-space: normal; /* Allow text to wrap on smaller screens */
+      }
+
+      .image-area {
+        justify-content: center; /* Center image on smaller screens */
+        padding-right: 0;
+        margin-top: 2rem;
+        transform: translateX(0); /* Remove slide-in for smaller screens if it looks off */
+        animation: none; /* Remove animation if it conflicts with stacking */
+        opacity: 1;
+      }
+
+      .image-area img {
+        width: 90%; /* Make image larger on smaller screens */
+      }
+
+      /* Adjust animation for text on small screens if desired */
+      .text-area h1,
+      .text-area p {
+        animation: fadeIn 1s ease forwards;
+        animation-delay: 0.5s;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      /* Responsive adjustments for About Me section */
+      .about-me {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center;
+        padding: 3rem 5vw; /* Adjust padding for smaller screens */
+      }
+
+      .about-content {
+        order: 2; /* Put text below image on small screens */
+        margin-top: 2rem;
+      }
+
+      .about-content h2 {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+      }
+
+      .about-content p {
+        font-size: 1rem;
+      }
+
+      .about-image {
+        order: 1; /* Put image above text on small screens */
+        margin-bottom: 2rem; /* Add space below image */
+      }
+
+      .about-image img {
+        max-width: 300px; /* Limit image size on smaller screens */
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <div class="text-area">
-      <h1>REECE M. DOBRO</h1>
-      <p>Purpose. Progress. Passion.</p>
-    </div>
-    <div class="image-area">
-      <img id="profile" src="images/profile.png" alt="Profile Picture" />
-    </div>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="text-area">
+        <h1>REECE M. DOBRO</h1>
+        <p>Purpose. Progress. Passion.</p>
+      </div>
+      <div class="image-area">
+        <img id="profile" src="images/profile.png" alt="Reece M. Dobro - Professional Profile Picture" />
+      </div>
+    </section>
+
+    <section class="about-me" id="about">
+      <div class="about-content">
+        <h2>About Me</h2>
+        <p>Words. Words. Words </p>
+        
+        </div>
+      <div class="about-image">
+        <img src="images/about-me.jpg" alt="Reece M. Dobro - About Me Image" class="fade-in-on-scroll">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Reece M. Dobro. All rights reserved.</p>
+    </footer>
 
   <script>
-    const profile = document.getElementById('profile');
-    profile.onload = () => {
-      profile.classList.add('visible');
-    };
+    // About Me image fade-in on scroll
+    const aboutImage = document.querySelector('.about-image img');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Stop observing once it's visible
+        }
+      });
+    }, {
+      threshold: 0.5 // Trigger when 50% of the image is in view
+    });
+
+    if (aboutImage) {
+      observer.observe(aboutImage);
+    }
   </script>
 
 </body>
