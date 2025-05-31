@@ -39,7 +39,7 @@
       opacity: 0;
       transform: translateX(-100px);
       animation: fadeSlideIn 1.2s ease forwards;
-      animation-delay: 0.5s;
+      animation-delay: 0.2s;
       padding-left: 2rem;
     }
 
@@ -55,7 +55,7 @@
       margin-top: 0.5rem;
       font-family: 'Jura', sans-serif;
       animation: fadeSlideIn 1s ease forwards;
-      animation-delay: 1s;
+      animation-delay: .8s;
       opacity: 0;
       color: #ffffff;
     }
@@ -89,25 +89,23 @@
       justify-content: flex-end;
       align-items: center;
       padding-right: 2rem;
-      min-width: 250px; /* Ensures image area doesn't get too small */
-      opacity: 0; /* Hidden by default for animation */
-      transform: translateX(100px); /* Start off-screen to the right */
-      animation: fadeSlideInRight 1.2s ease forwards; /* Apply new animation */
-      animation-delay: 0.7s; /* Slightly delayed from text */
+      min-width: 250px; 
+      opacity: 0;
+      transform: translateX(100px); 
+      animation: fadeSlideInRight 1.2s ease forwards; 
+      animation-delay: 1.2s; 
     }
 
     .image-area img {
-      width: 50%; /* Made smaller */
-      max-width: 250px; /* Adjusted max-width for smaller size */
-      border-radius: 50%; /* Changed to circular */
-      /* Removed opacity and transition here as animation is on parent .image-area */
-      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3), /* White and more subtle glow */
-                  0 10px 30px rgba(0,0,0,0.5); /* Existing subtle shadow */
-      aspect-ratio: 1 / 1; /* Ensures circular shape for non-square images */
-      object-fit: cover; /* Ensures image covers the circular area */
+      width: 50%; 
+      max-width: 250px; 
+      border-radius: 50%; 
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3), 
+                  0 10px 30px rgba(0,0,0,0.5); 
+      aspect-ratio: 1 / 1; 
+      object-fit: cover; 
     }
 
-    /* Removed .image-area img.visible as animation handles visibility */
 
     /* --- About Me Section --- */
     .about-me {
@@ -143,23 +141,23 @@
     }
 
     .about-image {
-      flex: 1; /* Takes up less space than the text */
+      flex: 1;
       display: flex;
-      justify-content: center; /* Center the image */
+      justify-content: center;
       align-items: center;
-      min-width: 250px; /* Minimum width for image */
+      min-width: 250px;
     }
 
     .about-image img {
-      width: 90%; /* Adjust image width as needed */
-      max-width: 400px; /* Max width for consistency */
-      border-radius: 15px; /* Slightly less rounded than profile for variety */
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Subtle shadow */
-      opacity: 0; /* Hidden by default for fade-in effect */
-      transition: opacity 1s ease-out; /* Smooth transition for fade-in */
+      width: 90%; 
+      max-width: 400px;
+      border-radius: 15px; 
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 1s ease-out;
     }
 
-    /* Class added by JavaScript when image is in view */
+    
     .about-image img.fade-in-on-scroll.visible {
       opacity: 1;
     }
@@ -175,7 +173,7 @@
       margin-top: 2rem; /* Add some space above the footer */
     }
 
-    /* Responsive adjustments */
+
     @media (max-width: 768px) {
       .hero {
         flex-direction: column; /* Stack elements vertically on small screens */
@@ -187,29 +185,29 @@
       .text-area {
         padding-left: 0;
         padding-right: 0;
-        transform: translateX(0); /* Remove slide-in for smaller screens if it looks off */
-        animation: none; /* Remove animation if it conflicts with stacking */
+        transform: translateX(0); 
+        animation: none; 
         opacity: 1;
       }
 
       .text-area h1 {
-        white-space: normal; /* Allow text to wrap on smaller screens */
+        white-space: normal; 
       }
 
       .image-area {
-        justify-content: center; /* Center image on smaller screens */
+        justify-content: center; 
         padding-right: 0;
         margin-top: 2rem;
-        transform: translateX(0); /* Remove slide-in for smaller screens if it looks off */
-        animation: none; /* Remove animation if it conflicts with stacking */
+        transform: translateX(0); 
+        animation: none; 
         opacity: 1;
       }
 
       .image-area img {
-        width: 90%; /* Make image larger on smaller screens */
+        width: 90%; 
       }
 
-      /* Adjust animation for text on small screens if desired */
+     
       .text-area h1,
       .text-area p {
         animation: fadeIn 1s ease forwards;
@@ -221,15 +219,15 @@
         to { opacity: 1; }
       }
 
-      /* Responsive adjustments for About Me section */
+     
       .about-me {
-        flex-direction: column; /* Stack content vertically */
+        flex-direction: column;
         text-align: center;
-        padding: 3rem 5vw; /* Adjust padding for smaller screens */
+        padding: 3rem 5vw
       }
 
       .about-content {
-        order: 2; /* Put text below image on small screens */
+        order: 2;
         margin-top: 2rem;
       }
 
@@ -242,12 +240,12 @@
       }
 
       .about-image {
-        order: 1; /* Put image above text on small screens */
-        margin-bottom: 2rem; /* Add space below image */
+        order: 1;
+        margin-bottom: 2rem; 
       }
 
       .about-image img {
-        max-width: 300px; /* Limit image size on smaller screens */
+        max-width: 300px; 
       }
     }
   </style>
@@ -268,7 +266,7 @@
     <section class="about-me" id="about">
       <div class="about-content">
         <h2>About Me</h2>
-        <p>Words. Words. Words </p>
+        <p>Hi! My name is Reece Morgan Dobro and I am a currently pursuing a bachelors degree in Computer Engineering and Electrical Engineering at North Carolina State University. I reside in Marvin, North Carolina and have had a passion for computers and electronics for as long as I can remember. I’m driven by curiosity and a love for solving real-world problems through hardware and software. Whether I’m implemnting a raspberry pi or coordinating with a passion group of engineers, I strive to blend creativity with technical precision. Let’s build something amazing together! </p>
         
         </div>
       <div class="about-image">
