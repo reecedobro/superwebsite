@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reece M. Dobro - Portfolio</title>
-
+  <title>Reece D</title>
+  <link rel="icon" href="images/profile.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Jura:wght@400&display=swap" rel="stylesheet">
 
   <style>
@@ -36,7 +36,7 @@
 
     .text-area {
       flex: 1;
-      min-width: 300px; /* Ensures text area doesn't get too small */
+      min-width: 300px; 
       opacity: 0;
       transform: translateX(-100px);
       animation: fadeSlideIn 1.2s ease forwards;
@@ -72,7 +72,6 @@
       }
     }
 
-    /* New animation for image coming from right */
     @keyframes fadeSlideInRight {
       from {
         opacity: 0;
@@ -108,7 +107,6 @@
     }
 
 
-    /* --- About Me Section --- */
     .about-me {
       display: flex;
       align-items: center;
@@ -126,7 +124,6 @@
       max-width: 700px; 
       text-align: left;
     }
-	
 	
 
     .about-content h2 {
@@ -149,6 +146,7 @@
       justify-content: center;
       align-items: center;
       min-width: 250px;
+	 
     }
 
     .about-image img {
@@ -193,8 +191,6 @@
 
     .grid-item img {
       width: 100%;
-	  margin-left: auto;
-	  margin-right: auto;
 	  padding: 4rem;
       height: auto;
       display: block;
@@ -202,8 +198,10 @@
     }
 	
 	.grid-item:nth-child(3) {
-		width: 115%;
-		height: auto;
+	  width: 115%;
+	  padding: .1rem;
+	  transform: translateX(-17px);
+      height: auto;
 	}
 
     .grid-item:hover img {
@@ -236,12 +234,7 @@
       font-size: 13px;
     }
 
-    @media (max-width: 768px) {
-      .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
+   
 
     /* Footer */
     footer {
@@ -249,7 +242,7 @@
       padding: 2rem;
       background-color: #1e293b;
       color: #cbd5e1; 
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       margin-top: 2rem; 
     }
 
@@ -258,8 +251,10 @@
       .hero {
         flex-direction: column; 
         text-align: center;
+		gap: .1rem
         padding-left: 2rem; 
         padding-right: 2rem;
+		min-height: 40vh;
       }
 
       .text-area {
@@ -268,6 +263,7 @@
         transform: translateX(0); 
         animation: none; 
         opacity: 1;
+
       }
 
       .text-area h1 {
@@ -278,6 +274,7 @@
         justify-content: center; 
         padding-right: 0;
         margin-top: 2rem;
+		margin-bottom: 2rem;
         transform: translateX(0); 
         animation: none; 
         opacity: 1;
@@ -286,7 +283,6 @@
       .image-area img {
         width: 90%; 
       }
-
      
       .text-area h1,
       .text-area p {
@@ -303,12 +299,13 @@
       .about-me {
         flex-direction: column;
         text-align: center;
-        padding: 3rem 5vw
+        padding: 2rem 5vw;
+		gap: .1rem; 
       }
 
       .about-content {
         order: 2;
-        margin-top: 2rem;
+        
       }
 
       .about-content h2 {
@@ -322,11 +319,26 @@
       .about-image {
         order: 1;
         margin-bottom: 2rem; 
+		
       }
 
       .about-image img {
         max-width: 300px; 
       }
+	  .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+		margin-top: 3.5rem;
+		padding-right: 3rem;
+		padding-left: 3rem;
+		margin-right: .5rem;
+		margin-left: .5rem;
+		column-gap: 2rem;
+      }
+	
+	  .grid-item img {
+		 height: auto;
+		 padding: 1px;
+	  }
     }
   </style>
 </head>
@@ -417,7 +429,7 @@
   </main>
 
   <footer>
-    <p>This website was created with passion and purpose. </p>
+    <p>This website was created with passion and purpose. :)</p>
     </footer>
 
   <script>
