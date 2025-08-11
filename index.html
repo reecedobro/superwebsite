@@ -3,454 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reece D</title>
+  <title>Reece Dobro</title>
   <link rel="icon" href="images/profile.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Jura:wght@400&display=swap" rel="stylesheet">
-
-  <style>
-  
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #0f172a;
-      font-family: 'Jura', sans-serif;
-      overflow-x: hidden;
-      color: #ffffff; /* Set default text color */
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 100vh; 
-      padding: 2rem 5vw;
-      gap: 2rem;
-      flex-wrap: wrap; 
-    }
-
-    .text-area {
-      flex: 1;
-      min-width: 300px; 
-      opacity: 0;
-      transform: translateX(-100px);
-      animation: fadeSlideIn 1.2s ease forwards;
-      animation-delay: 0.2s;
-      padding-left: 2rem;
-    }
-
-    .text-area h1 {
-      font-size: clamp(2rem, 8vw, 6rem);
-      font-family: 'Montserrat', sans-serif;
-      white-space: nowrap;
-      color: #ffffff;
-    }
-
-    .text-area p {
-      font-size: 1.7rem;
-      margin-top: 0.5rem;
-      font-family: 'Jura', sans-serif;
-      animation: fadeSlideIn 1s ease forwards;
-      animation-delay: .8s;
-      opacity: 0;
-      color: #ffffff;
-    }
-
-    @keyframes fadeSlideIn {
-      from {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeSlideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(100px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .image-area {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding-right: 2rem;
-      min-width: 250px; 
-      opacity: 0;
-      transform: translateX(100px); 
-      animation: fadeSlideInRight 1.2s ease forwards; 
-      animation-delay: 1.2s; 
-    }
-
-    .image-area img {
-      width: 50%; 
-      max-width: 250px; 
-      border-radius: 50%; 
-      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3), 
-                  0 10px 30px rgba(0,0,0,0.5); 
-      aspect-ratio: 1 / 1; 
-      object-fit: cover; 
-    }
-
-
-    .about-me {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5rem 5vw; 
-      background-color: #1e293b; 
-      gap: 3rem; 
-      flex-wrap: wrap; 
-      min-height: 70vh; 
-    }
-
-    .about-content {
-      flex: 2; 
-      min-width: 300px; 
-      max-width: 700px; 
-      text-align: left;
-    }
-	
-
-    .about-content h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-    }
-
-    .about-content p {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      color: #cbd5e1; 
-    }
-
-    .about-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 250px;
-	 
-    }
-
-    .about-image img {
-      width: 90%; 
-      max-width: 400px;
-      border-radius: 15px; 
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      opacity: 0;
-      transition: opacity 1s ease-out;
-    }
-
-    
-    .about-image img.fade-in-on-scroll.visible {
-      opacity: 1;
-    }
-	
-	.centered-heading {
-		text-align: center;
-		padding-top: 5rem;
-		font-family: 'Montserrat', sans-serif;
-		font-size: clamp(2rem, 4vw, 3rem);
-		margin-bottom: 1rem;
-		color: #ffffff;
-	}
-	
-	 .grid-container {
-      display: grid;
-	  padding-right: 2rem;
-	  padding-left: 2rem;
-      grid-template-columns: repeat(4, 1fr);
-	  margin-right: 5rem;
-	  margin-left: 5rem;
-	  column-gap: 6rem;
-    }
-
-    .grid-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-	  height: 15rem;
-    }
-
-    .grid-item img {
-      width: 100%;
-	  padding: 4rem;
-      height: auto;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-	
-	.grid-item:nth-child(3) {
-	  width: 115%;
-	  padding: .1rem;
-	  transform: translateX(-17px);
-      height: auto;
-	}
-
-    .grid-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .overlay {
-      position: absolute;
-	  text-align: center;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.65);
-      color: #fff;
-      padding: 15px;
-      opacity: 0;
-	  width: 100%;
-      transition: opacity 0.3s ease;
-    }
-
-    .grid-item:hover .overlay {
-      opacity: 1;
-    }
-
-    .overlay h3 {
-      margin: 0 0 5px;
-      font-size: 16px;
-    }
-
-    .overlay p {
-      margin: 0;
-      font-size: 13px;
-    }
-
-   
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #1e293b;
-      color: #cbd5e1; 
-      font-size: 0.7rem;
-      margin-top: 2rem; 
-    }
-
-
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column; 
-        text-align: center;
-		gap: .1rem
-        padding-left: 2rem; 
-        padding-right: 2rem;
-		min-height: 40vh;
-      }
-
-      .text-area {
-        padding-left: 0;
-        padding-right: 0;
-        transform: translateX(0); 
-        animation: none; 
-        opacity: 1;
-
-      }
-
-      .text-area h1 {
-        white-space: normal; 
-      }
-
-      .image-area {
-        justify-content: center; 
-        padding-right: 0;
-        margin-top: 2rem;
-		margin-bottom: 2rem;
-        transform: translateX(0); 
-        animation: none; 
-        opacity: 1;
-      }
-
-      .image-area img {
-        width: 90%; 
-      }
-     
-      .text-area h1,
-      .text-area p {
-        animation: fadeIn 1s ease forwards;
-        animation-delay: 0.5s;
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-
-     
-      .about-me {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 5vw;
-		gap: .1rem; 
-      }
-
-      .about-content {
-        order: 2;
-        
-      }
-
-      .about-content h2 {
-        font-size: clamp(1.8rem, 7vw, 3rem);
-      }
-
-      .about-content p {
-        font-size: 1rem;
-      }
-
-      .about-image {
-        order: 1;
-        margin-bottom: 2rem; 
-		
-      }
-
-      .about-image img {
-        max-width: 300px; 
-      }
-	  .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-		margin-top: 3.5rem;
-		padding-right: 3rem;
-		padding-left: 3rem;
-		margin-right: .5rem;
-		margin-left: .5rem;
-		column-gap: 2rem;
-      }
-	
-	  .grid-item img {
-		 height: auto;
-		 padding: 1px;
-	  }
-    }
-  </style>
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Jura:wght@100;300;400&display=swap" rel="stylesheet">  <link rel="stylesheet" href="style.css"> </head>
 <body>
 
   <main>
     <section class="hero">
-      <div class="text-area">
+      <div class="hero-text">
         <h1>REECE M. DOBRO</h1>
         <p>Purpose. Progress. Passion.</p>
       </div>
-      <div class="image-area">
-        <img id="profile" src="images/profile.png" alt="Reece M. Dobro - Professional Profile Picture" />
+      <div class="hero-image">
+        <img  src="images/profile.png" alt="Reece M. Dobro - Professional Profile Picture" />
       </div>
     </section>
-
+	
     <section class="about-me" id="about">
-      <div class="about-content">
+      <div class="about-me-text">
         <h2>About Me</h2>
-        <p>Hi! My name is Reece Morgan Dobro and I am a currently pursuing a bachelors degree in Computer Engineering and Electrical Engineering at North Carolina State University. I reside in Marvin, North Carolina and have had a passion for computers and electronics for as long as I can remember. I’m driven by curiosity and a love for solving real-world problems through hardware and software. Whether I’m implmenting a raspberry pi or coordinating with a passion group of engineers, I strive to blend creativity with technical precision. Let’s build something amazing together! </p>
-        
+        <p>Hi! My name is Reece Morgan Dobro and I am a currently pursuing a bachelors degree in Computer Engineering and Electrical Engineering at North Carolina State University. I reside in Waxhaw, North Carolina and have had a passion for computers and electronics for as long as I can remember. I’m driven by curiosity and a love for solving real-world problems through hardware and software. Whether I’m implementing a raspberry pi or coordinating with a passionate group of engineers, I strive to blend creativity with technical precision. Let’s build something amazing together! </p>
         </div>
-      <div class="about-image">
+      <div class="about-me-image">
         <img src="images/about-me.jpg" alt="Reece M. Dobro - About Me Image" class="fade-in-on-scroll">
       </div>
     </section>
-	<h2 class="centered-heading">Certifications</h1>
-	  <div class="grid-container">
-		<div class="grid-item">
+	
+	<section class="social-slideshow">
+	  <h2 class="central-heading-major">Social Media Highlights</h2>
+
+	  <div class="social-slide fade">
+		<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7353160917502599170?collapsed=1" height="645" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>	  
+	</div>
+
+	  <div class="social-slide fade">
+		<div class="instagram-wrapper">
+			<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CywC0nsKc8z/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CywC0nsKc8z/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CywC0nsKc8z/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Marvin Ridge High School (@marvinridgehsnc)</a></p></div></blockquote>
+			<script async src="//www.instagram.com/embed.js"></script>	
+		</div>
+	</div>
+
+	  <div class="social-slide fade">
+		<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fucpscareerready%2Fposts%2Fpfbid02ZGpMa6g8NK2LsJiwZWteMhdTRPNmSC2hoQUy2keLkjN61eJhUpCdzyEMQrjCyR2ql&show_text=false&width=500" width="500" height="374" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+	  </div>
+
+	  <!-- Arrows -->
+	  <button class="prev" onclick="changeSocialSlide(-1)">&#10094;</button>
+	  <button class="next" onclick="changeSocialSlide(1)">&#10095;</button>
+
+	  <!-- Dots for navigation -->
+	  <div class="social-dots-container">
+		<span class="dot" onclick="currentSocialSlide(1)"></span>
+		<span class="dot" onclick="currentSocialSlide(2)"></span>
+		<span class="dot" onclick="currentSocialSlide(3)"></span>
+	  </div>
+	</section>
+
+
+	<section class="certs">
+	<h2 class="central-heading">Certifications</h2>
+	  <div class="cert-grid-container">
+		<div class="cert-grid-item">
 		  <img src="images/icon_1.png" alt="Project 1">
-		  <div class="overlay">
+		  <div class="cert-overlay">
 			<h3>Autodesk AutoCAD</h3>
 			<p> Certified in AutoCAD in 2022 by Certiport.</p>
 		  </div>
 		</div>
-		<div class="grid-item">
+		<div class="cert-grid-item">
 		  <img src="images/icon_2.png" alt="Project 2">
-		  <div class="overlay">
+		  <div class="cert-overlay">
 			<h3>Autodesk Inventor</h3>
 			<p>Certified in Autodesk Inventor in 2023 by Certiport.</p>
 		  </div>
 		</div>
-		<div class="grid-item">
+		<div class="cert-grid-item">
 		  <img src="images/icon_3.png" alt="Project 3">
-		  <div class="overlay">
+			<div class="cert-overlay">
 			<h3>ACT WorkKeys </h3>
 			<p>Received the highest possible score on the ACT WorkKeys, an assessment measuring key skills for workplace success.</p>
 		  </div>
 		</div>
-		<div class="grid-item">
+		<div class="cert-grid-item">
 		  <img src="images/icon_4.png" alt="Project 4">
-		  <div class="overlay">
+		  <div class="cert-overlay">
 			<h3>Python MTA</h3>
 			<p>Certified in Python through the Microsoft Technology Associate (MTA) program in 2022.</p>
 		  </div>
 		</div>
-		<div class="grid-item">
+		<div class="cert-grid-item">
 		  <img src="images/icon_5.png" alt="Project 5">
-		  <div class="overlay">
+		  <div class="cert-overlay">
 			<h3>Adobe Illustrator</h3>
 			<p>Certified by Certiport in 2021.</p>
 		  </div>
 		</div>
-		<div class="grid-item">
+		<div class="cert-grid-item">
 		  <img src="images/icon_6.png" alt="Project 6">
-		  <div class="overlay">
+		  <div class="cert-overlay">
 			<h3>Adobe InDesign</h3>
 			<p>Certified by Certiport in 2021.</p>
 		  </div>
 		</div>
-		<div class="grid-item">
+		<div class="cert-grid-item">
 		  <img src="images/icon_7.png" alt="Project 7">
-		  <div class="overlay">
+		  <div class="cert-overlay">
 			<h3>Adobe Photoshop</h3>
 			<p>Certified by Certiport in 2022.</p>
 		  </div>
 		</div>
-		<div class="grid-item">
+		<div class="cert-grid-item">
 		  <img src="images/icon_8.png" alt="Project 8">
-		  <div class="overlay">
+		  <div class="cert-overlay">
 		    <h3>Adobe Premiere Pro</h3>
 		    <p>Certified by Certiport in 2023.</p>
 		   </div>
 		  </div>
-		  </div>
+		</div>
+	</section>
+	<section class="projects" id="projects">
+	  <h2 class="central-heading-major">Projects</h2>
+	  <div class="project-card">
+		<div class="project-image">
+		  <img src="images/Music_project.png" alt="Offline Playlist Downloader" />
+		  <p class="project-caption">Screenshot of results in Windows Media Player Legacy</p>
+		</div>
+		<div class="project-details">
+		 <h3 class="project-title">YouTube Playlist Song Organizer</h3>
+		 <p class="project-date-range">June 2024 – June 2025</p>
+		  <ul>
+			<li>Automates YouTube playlist downloads using Python</li>
+			<li>Adds and filters metadata tags according to self developed standard </li>
+			<li>Optimized for offline use across major music players</li>
+			<li>Improves library sorting for over 2,000 songs and device compatibility</li>
+			<li>Pulls cover art from a online database and optimizes the images for fast loading</li>
+		  </ul>
 		</div>
 	  </div>
+	  <div class="project-card">
+		<div class="slideshow-wrapper">
+		  <div class="slideshow-container">
+			<!-- your slides -->
+			<div class="slide fade">
+			  <img src="images/Desk1.jpg" alt="Desk 1">
+			</div>
+			<div class="slide fade">
+			  <img src="images/Desk2.jpg" alt="Desk 2">
+			</div>
+			<div class="slide fade">
+			  <img src="images/Desk3.jpg" alt="Desk 3">
+			</div>
+		  </div>
+
+		  <!-- Dots container BELOW slideshow container -->
+		  <div class="dots-container">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+		  </div>
+		</div>
+
+	   <div class="project-details">
+		<h3 class="project-title">Portable Table </h3>
+		<p class="project-date-range">January 2025 – April 2025</p>
+		<ul>
+		  <li>Won first place in NC State’s First-Year Engineering Design Day 3D Printing category, selected by manufacturing experts and alumni.</li>
+		  <li>Developed a compact portable table with wireless charging and a lamp that fits easily into a backpack for convenient travel.</li>
+		  <li>Ensured over 90% of the product's mass was 3D printed while also meeting a strict, detailed budget of under $40.</li>
+		  <li>Customized wiring to optimize power efficiency and reliability for vacation use.</li>
+		</ul>
+	   </div>
+		   
+	</div>
+	</section>
+	
   </main>
 
   <footer>
     <p>This website was created with passion and purpose. :)</p>
     </footer>
 
-  <script>
-    // About Me image fade-in on scroll
-    const aboutImage = document.querySelector('.about-image img');
+ <script>
+  const fadeElements = document.querySelectorAll('.fade-in-on-scroll');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // Stop observing once it's visible
-        }
-      });
-    }, {
-      threshold: 0.5 // Trigger when 50% of the image is in view
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
+  }, {
+    threshold: 0.5
+  });
 
-    if (aboutImage) {
-      observer.observe(aboutImage);
-    }
-  </script>
+  fadeElements.forEach(el => observer.observe(el));
+  
+  
+  
+	 let slideIndex = 1;
+	showSlides(slideIndex);
+
+	function showSlides(n) {
+	  const slides = document.getElementsByClassName("slide");
+	  const dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) { slideIndex = 1; }
+	  if (n < 1) { slideIndex = slides.length; }
+	  
+	  for (let i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";  
+	  }
+	  for (let i = 0; i < dots.length; i++) {
+		dots[i].classList.remove("active");
+	  }
+
+	  slides[slideIndex - 1].style.display = "block";  
+	  dots[slideIndex - 1].classList.add("active");
+	}
+
+	function currentSlide(n) {
+	  slideIndex = n;
+	  showSlides(slideIndex);
+	}
+
+	// Auto slide every 3 seconds
+	setInterval(() => {
+	  slideIndex++;
+	  if (slideIndex > document.getElementsByClassName("slide").length) {
+		slideIndex = 1;
+	  }
+	  showSlides(slideIndex);
+	}, 3000);
+	
+	
+	let socialSlideIndex = 1;
+	showSocialSlides(socialSlideIndex);
+
+	function showSocialSlides(n) {
+	  let slides = document.getElementsByClassName("social-slide");
+	  let dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) { socialSlideIndex = 1; }
+	  if (n < 1) { socialSlideIndex = slides.length; }
+	  for (let i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";
+	  }
+	  for (let i = 0; i < dots.length; i++) {
+		dots[i].classList.remove("active");
+	  }
+	  slides[socialSlideIndex - 1].style.display = "block";
+	  dots[socialSlideIndex - 1].classList.add("active");
+	}
+
+	function changeSocialSlide(n) {
+	  socialSlideIndex += n;
+	  showSocialSlides(socialSlideIndex);
+	}
+
+	function currentSocialSlide(n) {
+	  socialSlideIndex = n;
+	  showSocialSlides(socialSlideIndex);
+	}
+</script>
 
 </body>
 </html>
