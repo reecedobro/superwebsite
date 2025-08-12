@@ -17,17 +17,24 @@
       <div class="hero-image">
         <img  src="images/profile.png" alt="Reece M. Dobro - Professional Profile Picture" />
       </div>
+	  <div class="scroll-indicator">
+		<div class="arrow"></div>
+	  </div>
     </section>
-	
+
     <section class="about-me" id="about">
       <div class="about-me-text">
         <h2>About Me</h2>
-        <p>Hi! My name is Reece Morgan Dobro and I am a currently pursuing a bachelors degree in Computer Engineering and Electrical Engineering at North Carolina State University. I reside in Waxhaw, North Carolina and have had a passion for computers and electronics for as long as I can remember. I’m driven by curiosity and a love for solving real-world problems through hardware and software. Whether I’m implementing a raspberry pi or coordinating with a passionate group of engineers, I strive to blend creativity with technical precision. Let’s build something amazing together! </p>
+        <p>Hi! My name is Reece Morgan Dobro and I am a currently pursuing a Bachelors and Masters degree in <strong>Computer Engineering and Electrical Engineering at North Carolina State University.</strong>  I reside in Waxhaw, North Carolina and have had a passion for computers and electronics for as long as I can remember. I’m driven by curiosity and a love for solving real-world problems through hardware and software. Whether I’m implementing a raspberry pi or coordinating with a passionate group of engineers, I strive to blend creativity with technical precision. Let’s build something amazing together! </p>
         </div>
       <div class="about-me-image">
         <img src="images/about-me.jpg" alt="Reece M. Dobro - About Me Image" class="fade-in-on-scroll">
+		<div class="resume-download">
+			<a href="resume.pdf"  download target="_blank" rel="noopener noreferrer" download>Download My Resume</a>  
+		</div>
       </div>
     </section>
+	
 	
 	<section class="social-slideshow">
 	  <h2 class="central-heading-major">Social Media Highlights</h2>
@@ -176,6 +183,48 @@
 		   
 	</div>
 	</section>
+	<section class="organizations">
+		<h2 class="central-heading-major">Organizations</h2>
+		<div class="org-container">
+			<div class="org-logos">
+			<div class="org-logo" data-org="org1">
+				<img src="images/solarpack.png" alt="IEEE Logo" />
+			</div>
+			<div class="org-logo" data-org="org2">
+				<img src="images/wieland.png" alt="Robotics Club Logo" />
+			</div>
+			<div class="org-logo" data-org="org3">
+				<img src="images/council.png" alt="SWE Logo" />
+			</div>
+			<div class="org-logo" data-org="org4">
+				<img src="images/ieee.png" alt="Volunteer Group Logo" />
+			</div>
+			</div>
+			<div class="org-info">
+			<div class="org-details" id="org1">
+				<h3>NC State SolarPack</h3>
+				<img src="images/solarpackmain.jpg" alt="IEEE Event" />
+				<p>Active member currently serving on the low-voltage team.</p>
+			</div>
+			<div class="org-details" id="org2">
+				<h3>Wieland Copper Products</h3>
+				<img src="images/wielandcooper.webp" alt="Robotics Club" />
+				<p>For 4 months, from April 2025 to August 2025, worked to accomplish several tasks as a process engineering intern.</p>
+			</div>
+			<div class="org-details" id="org3">
+				<h3>NC State Engineer's Council</h3>
+				<img src="images/sol.jpg" alt="SWE Meeting" />
+				<p>Currently the head of the organization's website. Collaborate with a multidisciplinary team of engineers to foster teamwork and engagement among NC State students.</p>
+			</div>
+			<div class="org-details" id="org4">
+				<h3>NCSU IEEE</h3>
+				<img src="images/ieeesample.jpg" alt="Volunteer Event" />
+				<p>Currently a member of the NCSU IEEE Chapter. During Fall 2024, particpated in the IEEE Open Project Space, where I was learned about circuitry and microcontroller programming.</p>
+			</div>
+			</div>
+		</div>
+	</section>
+
 	
   </main>
 
@@ -226,14 +275,13 @@
 	  showSlides(slideIndex);
 	}
 
-	// Auto slide every 3 seconds
 	setInterval(() => {
 	  slideIndex++;
 	  if (slideIndex > document.getElementsByClassName("slide").length) {
 		slideIndex = 1;
 	  }
 	  showSlides(slideIndex);
-	}, 3000);
+	}, 7000);
 	
 	
 	let socialSlideIndex = 1;
@@ -263,6 +311,36 @@
 	  socialSlideIndex = n;
 	  showSocialSlides(socialSlideIndex);
 	}
+  
+	window.addEventListener('scroll', () => {
+	const indicator = document.querySelector('.scroll-indicator');
+	if (!indicator) return;
+
+	if (window.scrollY >= 250) {
+		indicator.classList.add('hidden');
+	} else {
+		indicator.classList.remove('hidden');
+	}
+	});	
+
+
+	const logos = document.querySelectorAll('.org-logo');
+	const details = document.querySelectorAll('.org-details');
+
+	logos.forEach(logo => {
+	logo.addEventListener('mouseenter', () => {
+		const id = logo.getAttribute('data-org');
+		details.forEach(detail => {
+		detail.classList.toggle('active', detail.id === id);
+		});
+	});
+	});
+
+	// Optionally, clear active detail when mouse leaves logos container
+	document.querySelector('.org-logos').addEventListener('mouseleave', () => {
+	details.forEach(detail => detail.classList.remove('active'));
+	});
+
 </script>
 
 </body>
