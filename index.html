@@ -38,6 +38,10 @@
 	
 	<section class="social-slideshow">
 	  <h2 class="central-heading-major">Social Media Highlights</h2>
+	  
+	 <div class="social-slide fade">
+		<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7463961413191954432" height="645" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>	  
+	</div>
 
 	  <div class="social-slide fade">
 		<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7353160917502599170?collapsed=1" height="645" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>	  
@@ -63,6 +67,7 @@
 		<span class="dot" onclick="currentSocialSlide(1)"></span>
 		<span class="dot" onclick="currentSocialSlide(2)"></span>
 		<span class="dot" onclick="currentSocialSlide(3)"></span>
+		<span class="dot" onclick="currentSocialSlide(4)"></span>
 	  </div>
 	</section>
 
@@ -131,10 +136,79 @@
 	<section class="projects" id="projects">
 	  <h2 class="central-heading-major">Projects</h2>
 	  <div class="project-card">
-		<div class="project-image">
+		  <div class="slideshow-wrapper">
+		  <div class="slideshow-container mppt-slides">
+			<div class="slide fade">
+			  <img src="images/mppt1.jpg" alt="MPPT PCB Design">
+			</div>
+			<div class="slide fade">
+			  <img src="images/mppt2.jpg" alt="MPPT Testing Setup">
+			</div>
+			<div class="slide fade">
+			  <img src="images/mppt3.png" alt="Solar Array Integration">
+			</div>
+		  </div>
+
+		  <div class="dots-container">
+			<span class="dot mppt-dot" onclick="currentMPPTSlide(1)"></span>
+			<span class="dot mppt-dot" onclick="currentMPPTSlide(2)"></span>
+			<span class="dot mppt-dot" onclick="currentMPPTSlide(3)"></span>
+		  </div>
+		</div>
+
+		  <div class="project-details">
+			<h3 class="project-title">Maximum Power Point Tracking (MPPT) System</h3>
+			<p class="project-date-range">SolarPack Project</p>
+
+			<ul>
+			  <li>Redesigned a Maximum Power Point Tracking system using a custom PCB to improve solar energy harvesting efficiency</li>
+			  <li>Expanded system capability to support a larger solar array while maintaining stable power regulation</li>
+			  <li>Integrated control logic to optimize voltage and current output under varying environmental conditions</li>
+			  <li>Improved scalability and modularity of the power electronics architecture for vehicle integration</li>
+			</ul>
+		  </div>
+		</div>
+		<div class="project-card">
+		 <div class="slideshow-wrapper">
+		  <div class="slideshow-container rfid-slides">
+			<div class="slide fade">
+			  <img src="images/rfid1.png" alt="RFID System Hardware">
+			</div>
+			<div class="slide fade">
+			  <img src="images/rfid2.png" alt="Raspberry Pi Pico Setup">
+			</div>
+			<div class="slide fade">
+			  <img src="images/rfid3.png" alt="Scematic">
+			</div>
+		  </div>
+
+		  <div class="dots-container">
+			<span class="dot rfid-dot" onclick="currentRFIDSlide(1)"></span>
+			<span class="dot rfid-dot" onclick="currentRFIDSlide(2)"></span>
+			<span class="dot rfid-dot" onclick="currentRFIDSlide(3)"></span>
+		  </div>
+		</div>
+
+  <div class="project-details">
+    <h3 class="project-title">RFID-Based Event Check-In System</h3>
+    <p class="project-date-range">HackNC State Project</p>
+
+    <ul>
+      <li>Developed a low-power RFID tracking system for real-time participant check-in during a 50+ hour hackathon</li>
+      <li>Processed and tracked 300+ participants using a Raspberry Pi Pico configured as a USB HID device</li>
+      <li>Automated ID input stream directly into a React-based database system for live attendance monitoring</li>
+      <li>Designed for rapid deployment, reliability, and easy troubleshooting in high-pressure event environments</li>
+    </ul>
+  </div>
+</div>
+	  <div class="project-card">
+
+		<div class="slideshow-wrapper">
+		  <div class="slide2">
 		  <img src="images/Music_project.png" alt="Offline Playlist Downloader" />
 		  <p class="project-caption">Screenshot of results in Windows Media Player Legacy</p>
 		</div>
+		</div>	
 		<div class="project-details">
 		 <h3 class="project-title">YouTube Playlist Song Organizer</h3>
 		 <p class="project-date-range">June 2024 – June 2025</p>
@@ -149,26 +223,28 @@
 	  </div>
 	  <div class="project-card">
 		<div class="slideshow-wrapper">
-		  <div class="slideshow-container">
-			<!-- your slides -->
-			<div class="slide fade">
-			  <img src="images/Desk1.jpg" alt="Desk 1">
-			</div>
-			<div class="slide fade">
-			  <img src="images/Desk2.jpg" alt="Desk 2">
-			</div>
-			<div class="slide fade">
-			  <img src="images/Desk3.jpg" alt="Desk 3">
-			</div>
-		  </div>
+  <div class="slideshow-container table-slides">
+    
+    <div class="slide fade">
+      <img src="images/desk1.jpg" alt="Portable Table CAD Design">
+    </div>
 
-		  <!-- Dots container BELOW slideshow container -->
-		  <div class="dots-container">
-			<span class="dot" onclick="currentSlide(1)"></span>
-			<span class="dot" onclick="currentSlide(2)"></span>
-			<span class="dot" onclick="currentSlide(3)"></span>
-		  </div>
-		</div>
+    <div class="slide fade">
+      <img src="images/desk2.jpg" alt="Portable Table Prototype">
+    </div>
+
+    <div class="slide fade">
+      <img src="images/desk3.jpg" alt="Portable Table Features and Assembly">
+    </div>
+
+  </div>
+
+  <div class="dots-container">
+    <span class="dot table-dot" onclick="currentTableSlide(1)"></span>
+    <span class="dot table-dot" onclick="currentTableSlide(2)"></span>
+    <span class="dot table-dot" onclick="currentTableSlide(3)"></span>
+  </div>
+</div>
 
 	   <div class="project-details">
 		<h3 class="project-title">Portable Table </h3>
@@ -187,42 +263,68 @@
 		<h2 class="central-heading-major">Organizations</h2>
 		<div class="org-container">
 			<div class="org-logos">
-			<div class="org-logo" data-org="org1">
+			  <div class="org-logo" data-org="org1">
 				<img src="images/solarpack.png" alt="IEEE Logo" />
-			</div>
-			<div class="org-logo" data-org="org2">
+			  </div>
+
+			  <div class="org-logo" data-org="org2">
 				<img src="images/wieland.png" alt="Robotics Club Logo" />
-			</div>
-			<div class="org-logo" data-org="org3">
+			  </div>
+
+			  <div class="org-logo" data-org="org3">
 				<img src="images/council.png" alt="SWE Logo" />
-			</div>
-			<div class="org-logo" data-org="org4">
+			  </div>
+
+			  <div class="org-logo" data-org="org4">
 				<img src="images/ieee.png" alt="Volunteer Group Logo" />
-			</div>
+			  </div>
+
+			  <div class="org-logo" data-org="org5">
+				<img src="images/hackncsu.png" alt="HackNC State Logo" />
+			  </div>
+
+			  <div class="org-logo" data-org="org6">
+				<img src="images/refresco.png" alt="Refresco Logo" />
+			  </div>
+
+			
 			</div>
 			<div class="org-info">
 			<div class="org-details" id="org1">
 				<h3>NC State SolarPack</h3>
 				<img src="images/solarpackmain.jpg" alt="IEEE Event" />
-				<p>Active member currently serving on the low-voltage team.</p>
+				<p>Contribute to the design, integration, and optimization of electrical systems for a solar-powered vehicle platform. Support wiring, troubleshooting, and system validation across both low-voltage and high-voltage subsystems to ensure reliability and performance. Configure and reprogram custom PCBs for decentralized automotive communication systems, enabling robust inter-module data exchange. Collaborate closely with mechanical engineering teams to integrate electrical systems through CAN bus architecture for seamless vehicle operation. Led the redesign of a Maximum Power Point Tracking (MPPT) system using a custom PCB to support an expanded solar array, improving overall energy harvesting capability and system scalability.</p>
 			</div>
 			<div class="org-details" id="org2">
 				<h3>Wieland Copper Products</h3>
-				<img src="images/wielandcooper.webp" alt="Robotics Club" />
-				<p>For 4 months, from April 2025 to August 2025, worked to accomplish several tasks as a process engineering intern.</p>
+				<img src="images/wie.jpg" alt="Robotics Club" />
+				<p>Supported manufacturing and process improvement initiatives in a high-volume copper production environment. Applied additive manufacturing and reverse engineering to diagnose, repair, and redesign critical production components, improving prototyping reliability and reducing tooling costs by 77%. Developed Python-based data extraction and visualization tools to assist engineers in identifying welding and process inefficiencies, improving diagnostic speed and decision-making. Automated SAP Bill of Materials (BOM) workflows, saving approximately $6,300 while improving update accuracy and reducing manual workload. Designed and implemented an automated cleaning system using PLC-based controls and solenoid valves, reducing projected system costs by 20%. Collaborated with engineering teams to streamline workflows, enhance tooling design, and improve overall manufacturing efficiency and system reliability.	</p>
 			</div>
 			<div class="org-details" id="org3">
 				<h3>NC State Engineer's Council</h3>
 				<img src="images/sol.jpg" alt="SWE Meeting" />
-				<p>Currently the head of the organization's website. Collaborate with a multidisciplinary team of engineers to foster teamwork and engagement among NC State students.</p>
+				<p>The NC State Engineer’s Council is a student-led organization dedicated to connecting engineering students with industry, faculty, and professional development opportunities across campus. As a Webmaster, I helped lead a full website redesign focused on improving usability, performance, and visual consistency. Working alongside CS and UX teams, we modernized the platform to better represent the organization and improve accessibility for students and partners. Also led engagement with industry professionals, culminating in a collaberative "speaker series" event with Prolec GE.</p>
 			</div>
 			<div class="org-details" id="org4">
 				<h3>NCSU IEEE</h3>
 				<img src="images/ieeesample.jpg" alt="Volunteer Event" />
-				<p>Currently a member of the NCSU IEEE Chapter. During Fall 2024, particpated in the IEEE Open Project Space, where I was learned about circuitry and microcontroller programming.</p>
+			<p> As a technical member, I contributed to circuit design, embedded programming, and sensor integration using microcontrollers such as Arduino. I worked on systems involving SPI communication and real-time data exchange, and helped develop an energy-efficient room control project using PID-based control strategies to reduce power consumption and improve system efficiency.</p>
 			</div>
-			</div>
+			<div class="org-details" id="org5">
+		  <h3>HackNC State</h3>
+		  <img src="images/hackncsu.jpg" alt="HackNC Event" />
+		  <p>
+			Served as a Logistics Organizer for HackNC State, supporting the coordination and execution of a 50+ hour hackathon event with 300+ participants. Developed a low-power RFID check-in system using a Raspberry Pi Pico to streamline participant tracking and automate registration workflows. Focused on system reliability, rapid deployment, and maintainability to ensure smooth event operations across multiple teams.
+		  </p>
 		</div>
+		<div class="org-details" id="org6">
+		  <h3>Refresco Beverages</h3>
+		  <img src="images/refresco.jpg" alt="Refresco Manufacturing Facility" />
+		  <p>
+			Completed a summer internship in a high-volume beverage manufacturing environment, gaining exposure to automation systems, HMI interfaces, and industrial control processes. Supported operational improvements by shadowing operators across production lines and learning real-world applications of process control, quality assurance, and maintenance workflows. Built foundational understanding of large-scale bottling systems and industrial automation architecture.
+		  </p>
+		</div>
+		
 	</section>
 
 	
@@ -233,114 +335,174 @@
     </footer>
 
  <script>
-  const fadeElements = document.querySelectorAll('.fade-in-on-scroll');
+// =========================
+// FADE-IN ON SCROLL
+// =========================
+const fadeElements = document.querySelectorAll('.fade-in-on-scroll');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+fadeElements.forEach(el => observer.observe(el));
+
+
+// =========================
+// HERO SCROLL INDICATOR
+// =========================
+window.addEventListener('scroll', () => {
+  const indicator = document.querySelector('.scroll-indicator');
+  if (!indicator) return;
+
+  if (window.scrollY >= 250) {
+    indicator.classList.add('hidden');
+  } else {
+    indicator.classList.remove('hidden');
+  }
+});
+
+
+// =========================
+// SOCIAL SLIDESHOW
+// =========================
+let socialSlideIndex = 1;
+showSocialSlides(socialSlideIndex);
+
+function showSocialSlides(n) {
+  let slides = document.getElementsByClassName("social-slide");
+  let dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) socialSlideIndex = 1;
+  if (n < 1) socialSlideIndex = slides.length;
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+
+  slides[socialSlideIndex - 1].style.display = "block";
+  if (dots[socialSlideIndex - 1]) {
+    dots[socialSlideIndex - 1].classList.add("active");
+  }
+}
+
+function changeSocialSlide(n) {
+  socialSlideIndex += n;
+  showSocialSlides(socialSlideIndex);
+}
+
+function currentSocialSlide(n) {
+  socialSlideIndex = n;
+  showSocialSlides(socialSlideIndex);
+}
+
+
+// =========================
+// GENERIC SLIDESHOW FACTORY
+// =========================
+function createSlideshow(containerSelector, interval = 6000) {
+  let index = 1;
+
+  const container = document.querySelector(containerSelector);
+  if (!container) return null;
+
+  const slides = container.querySelectorAll(".slide");
+  const dots = container.querySelectorAll(".dot");
+
+  function show(n) {
+    if (slides.length === 0) return;
+
+    if (n > slides.length) index = 1;
+    if (n < 1) index = slides.length;
+
+    slides.forEach(s => (s.style.display = "none"));
+    dots.forEach(d => d.classList.remove("active"));
+
+    slides[index - 1].style.display = "block";
+    if (dots[index - 1]) dots[index - 1].classList.add("active");
+  }
+
+  function next() {
+    index++;
+    show(index);
+  }
+
+  function goTo(n) {
+    index = n;
+    show(index);
+  }
+
+  show(index);
+
+  setInterval(next, interval);
+
+  return { next, goTo };
+}
+
+
+// =========================
+// PROJECT SLIDESHOWS
+// =========================
+const table = createSlideshow(".table-slides", 7000);
+const mppt = createSlideshow(".mppt-slides", 7000);
+const rfid = createSlideshow(".rfid-slides", 7000);
+
+
+// =========================
+// ORGANIZATION HOVER LOGIC
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const logos = document.querySelectorAll('.org-logo');
+  const details = document.querySelectorAll('.org-details');
+  const container = document.querySelector('.org-logos');
+
+  function showOrg(id) {
+    details.forEach(d => {
+      d.classList.toggle('active', d.id === id);
+    });
+  }
+
+  function clearOrg() {
+    details.forEach(d => d.classList.remove('active'));
+  }
+
+  logos.forEach(logo => {
+    const id = logo.getAttribute('data-org');
+
+    // Desktop hover
+    logo.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 768) {
+        showOrg(id);
       }
     });
-  }, {
-    threshold: 0.5
+
+    // Mobile tap
+    logo.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        const target = document.getElementById(id);
+        target.classList.toggle('active');
+      }
+    });
   });
 
-  fadeElements.forEach(el => observer.observe(el));
-  
-  
-  
-	 let slideIndex = 1;
-	showSlides(slideIndex);
-
-	function showSlides(n) {
-	  const slides = document.getElementsByClassName("slide");
-	  const dots = document.getElementsByClassName("dot");
-	  if (n > slides.length) { slideIndex = 1; }
-	  if (n < 1) { slideIndex = slides.length; }
-	  
-	  for (let i = 0; i < slides.length; i++) {
-		slides[i].style.display = "none";  
-	  }
-	  for (let i = 0; i < dots.length; i++) {
-		dots[i].classList.remove("active");
-	  }
-
-	  slides[slideIndex - 1].style.display = "block";  
-	  dots[slideIndex - 1].classList.add("active");
-	}
-
-	function currentSlide(n) {
-	  slideIndex = n;
-	  showSlides(slideIndex);
-	}
-
-	setInterval(() => {
-	  slideIndex++;
-	  if (slideIndex > document.getElementsByClassName("slide").length) {
-		slideIndex = 1;
-	  }
-	  showSlides(slideIndex);
-	}, 7000);
-	
-	
-	let socialSlideIndex = 1;
-	showSocialSlides(socialSlideIndex);
-
-	function showSocialSlides(n) {
-	  let slides = document.getElementsByClassName("social-slide");
-	  let dots = document.getElementsByClassName("dot");
-	  if (n > slides.length) { socialSlideIndex = 1; }
-	  if (n < 1) { socialSlideIndex = slides.length; }
-	  for (let i = 0; i < slides.length; i++) {
-		slides[i].style.display = "none";
-	  }
-	  for (let i = 0; i < dots.length; i++) {
-		dots[i].classList.remove("active");
-	  }
-	  slides[socialSlideIndex - 1].style.display = "block";
-	  dots[socialSlideIndex - 1].classList.add("active");
-	}
-
-	function changeSocialSlide(n) {
-	  socialSlideIndex += n;
-	  showSocialSlides(socialSlideIndex);
-	}
-
-	function currentSocialSlide(n) {
-	  socialSlideIndex = n;
-	  showSocialSlides(socialSlideIndex);
-	}
-  
-	window.addEventListener('scroll', () => {
-	const indicator = document.querySelector('.scroll-indicator');
-	if (!indicator) return;
-
-	if (window.scrollY >= 250) {
-		indicator.classList.add('hidden');
-	} else {
-		indicator.classList.remove('hidden');
-	}
-	});	
-
-
-	const logos = document.querySelectorAll('.org-logo');
-	const details = document.querySelectorAll('.org-details');
-
-	logos.forEach(logo => {
-	logo.addEventListener('mouseenter', () => {
-		const id = logo.getAttribute('data-org');
-		details.forEach(detail => {
-		detail.classList.toggle('active', detail.id === id);
-		});
-	});
-	});
-
-	// Optionally, clear active detail when mouse leaves logos container
-	document.querySelector('.org-logos').addEventListener('mouseleave', () => {
-	details.forEach(detail => detail.classList.remove('active'));
-	});
-
+  // Desktop: keep last hovered (NO reset)
+  if (container) {
+    container.addEventListener('mouseleave', () => {
+      if (window.innerWidth <= 768) return;
+      // do nothing (sticky behavior)
+    });
+  }
+});
 </script>
 
 </body>
