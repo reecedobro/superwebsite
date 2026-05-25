@@ -15,8 +15,10 @@
         <p>Purpose. Progress. Passion.</p>
       </div>
       <div class="hero-image">
-        <img  src="images/profile.png" alt="Reece M. Dobro - Professional Profile Picture" />
-      </div>
+	  <a href="https://www.linkedin.com/in		/reece-dobro" target="_blank" rel="noopener noreferrer">
+		<img src="images/profile.png" alt="Reece M. Dobro - Professional Profile Picture" />
+	  </a>
+	</div>
 	  <div class="scroll-indicator">
 		<div class="arrow"></div>
 	  </div>
@@ -419,41 +421,33 @@ function currentSocialSlide(n) {
 // GENERIC SLIDESHOW FACTORY
 // =========================
 function createSlideshow(containerSelector, interval = 6000) {
-  let index = 1;
+  let index = 0;
 
   const container = document.querySelector(containerSelector);
-  if (!container) return null;
+  if (!container) return;
 
   const slides = container.querySelectorAll(".slide");
-  const dots = container.querySelectorAll(".dot");
-
-  if (!slides.length) return null;
+  const dots = container.parentElement.querySelectorAll(".dot");
 
   function show(n) {
-    if (n > slides.length) index = 1;
-    if (n < 1) index = slides.length;
+    index = (n + slides.length) % slides.length;
 
-    slides.forEach(s => (s.style.display = "none"));
+    slides.forEach(s => s.classList.remove("active"));
     dots.forEach(d => d.classList.remove("active"));
 
-    slides[index - 1].style.display = "block";
-
-    if (dots[index - 1]) {
-      dots[index - 1].classList.add("active");
-    }
+    slides[index].classList.add("active");
+    if (dots[index]) dots[index].classList.add("active");
   }
 
   function next() {
-    index++;
-    show(index);
+    show(index + 1);
   }
 
   function goTo(n) {
-    index = n;
-    show(index);
+    show(n - 1);
   }
 
-  show(index);
+  show(0);
   setInterval(next, interval);
 
   return { next, goTo };

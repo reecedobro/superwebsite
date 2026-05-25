@@ -164,11 +164,14 @@ body {
 }
 
 .hero-image img {
-  width: 60%;
-  max-width: 400px;
+  width: clamp(320px, 28vw, 520px);
+  max-width: 520px;
+  min-width: 320px;
+
   border-radius: 50%;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3),
               0 10px 30px rgba(0,0,0,0.5);
+
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
@@ -422,17 +425,24 @@ body {
 
 .slideshow-container {
   position: relative;
-  width: 100%;             /* fill wrapper width */
+  width: 100%;
   height: 338px;
   overflow: hidden;
 }
 
 .slide {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 .slide img {
@@ -442,7 +452,6 @@ body {
   display: block;
   margin: auto;
 }
-
 
 
 .slide2 img {
@@ -721,48 +730,53 @@ footer {
   /* =========================
      HERO FIX (FULL SCREEN)
   ========================= */
-  .hero {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 4rem 1.25rem 3rem;
-    gap: 1.25rem;
-  }
+ 
 
-  .hero-text {
-    order: 1;
-    padding: 0;
-    transform: none !important;
-    animation: none !important;
-    opacity: 1 !important;
-  }
+.hero {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3rem 1.25rem 2.5rem;
+  gap: 1rem;
+}
 
-  .hero-text h1 {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    white-space: normal;
-    font-size: 2.2rem;
-  }
+/* TEXT */
+.hero-text {
+  order: 1;
+  padding: 0;
+  transform: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+}
 
-  .hero-text p {
-    font-size: 1.1rem;
-    opacity: 1 !important;
-  }
+.hero-text h1 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: normal;
+  font-size: 2.2rem;
+}
 
-  .hero-image {
-    order: 2;
-    justify-content: center;
-    padding: 0;
-  }
+.hero-text p {
+  font-size: 1.1rem;
+  opacity: 1 !important;
+}
 
-  .hero-image img {
-    width: 78%;
-    max-width: 280px;
-    height: auto;
-  }
+/* IMAGE (BIGGER FIX) */
+.hero-image {
+  order: 2;
+  justify-content: center;
+  padding: 0;
+}
+
+.hero-image img {
+  width: 88%;          /* 🔥 bigger */
+  max-width: 360px;    /* 🔥 increased cap */
+  height: auto;
+  border-radius: 50%;
+}
 
   /* =========================
      RESUME BUTTON FIX
