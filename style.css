@@ -647,7 +647,47 @@ body {
   line-height: 1.5;
   color: #cbd5e1;
 }
+		/* =========================
+   WRITING SAMPLES BUTTON (DESKTOP)
+========================= */
 
+.writing-button {
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+
+  background-color: #003566;
+  color: white;
+
+  padding: 12px 18px;
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+
+  transition: all 0.3s ease;
+
+  z-index: 999;
+}
+
+.writing-button:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
+}
+
+/* visible state */
+.writing-button.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 /* Footer */
 footer {
   text-align: center;

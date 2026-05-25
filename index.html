@@ -326,7 +326,9 @@
 		</div>
 		
 	</section>
-
+		<a href="writing-samples.html" class="writing-button">
+	Writing Samples ->
+	</a>
 	
   </main>
 
@@ -448,7 +450,23 @@ function createSlideshow(containerSelector, interval = 6000) {
 
   return { next, goTo };
 }
+	const writingButton = document.querySelector(".writing-button");
 
+window.addEventListener("scroll", () => {
+  if (!writingButton) return;
+
+  const scrollY = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+
+  const nearBottom = scrollY + windowHeight >= docHeight - 500;
+
+  if (nearBottom) {
+    writingButton.classList.add("show");
+  } else {
+    writingButton.classList.remove("show");
+  }
+});
 
 // =========================
 // PROJECT SLIDESHOWS
