@@ -701,26 +701,33 @@ footer {
    CLEAN MOBILE SYSTEM — FINAL FIX (MAX 768px)
    Paste at bottom of CSS and REMOVE old mobile rules
    ===================================================== */
-
 @media (max-width: 768px) {
 
   /* =========================
-     GLOBAL SAFETY RESET
+     GLOBAL SAFETY FIXES
   ========================= */
   body {
     overflow-x: hidden;
   }
 
-  /* =========================
-     HERO SECTION
-  ========================= */
+  html, body {
+    width: 100%;
+  }
 
+  iframe {
+    max-width: 100%;
+  }
+
+  /* =========================
+     HERO FIX (FULL SCREEN)
+  ========================= */
   .hero {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 2rem 1.25rem;
-    min-height: auto;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 4rem 1.25rem 3rem;
     gap: 1.25rem;
   }
 
@@ -732,12 +739,10 @@ footer {
     opacity: 1 !important;
   }
 
-  /* NAME FIX (IMPORTANT) */
   .hero-text h1 {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    color: #ffffff !important;
     white-space: normal;
     font-size: 2.2rem;
   }
@@ -747,7 +752,6 @@ footer {
     opacity: 1 !important;
   }
 
-  /* FACE IMAGE BIGGER */
   .hero-image {
     order: 2;
     justify-content: center;
@@ -760,29 +764,32 @@ footer {
     height: auto;
   }
 
+  /* =========================
+     RESUME BUTTON FIX
+  ========================= */
   .resume-download {
     order: 3;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .resume-download a {
-    width: 100%;
-    max-width: 260px;
+    min-width: 200px;
     text-align: center;
   }
 
   /* =========================
-     REMOVE ARROW COMPLETELY
+     REMOVE SCROLL ARROW
   ========================= */
-
   .scroll-indicator {
     display: none !important;
   }
 
   /* =========================
-     ABOUT SECTION
+     ABOUT SECTION FIX
   ========================= */
-
   .about-me {
     flex-direction: column;
     text-align: center;
@@ -790,19 +797,27 @@ footer {
   }
 
   .about-me-text {
-    order: 1;
     margin: 0;
     max-width: 100%;
   }
 
+  /* RESTORE IMAGE ON MOBILE */
   .about-me-image {
-    display: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .about-me-image img {
+    width: 80%;
+    max-width: 320px;
+    opacity: 1 !important;
   }
 
   /* =========================
      PROJECTS FIX
   ========================= */
-
   .project-card {
     flex-direction: column;
     align-items: center;
@@ -819,17 +834,8 @@ footer {
     text-align: left;
   }
 
-  /* CENTER IMAGE FIX */
-  .project-image,
-  .slideshow-wrapper,
   .slideshow-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .slideshow-container {
     height: 220px;
   }
 
@@ -837,13 +843,11 @@ footer {
     max-width: 100%;
     max-height: 220px;
     object-fit: contain;
-    margin: auto;
   }
 
   /* =========================
-     ORGANIZATIONS FIX (MOBILE WORKING)
+     ORGANIZATIONS FIX (IMPORTANT)
   ========================= */
-
   .org-container {
     flex-direction: column;
     align-items: center;
@@ -874,18 +878,18 @@ footer {
     padding: 1.25rem;
   }
 
+  /* FORCE ONLY ONE ACTIVE PANEL */
   .org-details {
-    display: none;
+    display: none !important;
   }
 
   .org-details.active {
-    display: block;
+    display: block !important;
   }
 
   /* =========================
      CERTIFICATIONS FIX
   ========================= */
-
   .cert-grid-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -898,23 +902,165 @@ footer {
   }
 
   /* =========================
-     SOCIAL FEED FIX
+     SOCIAL / EMBED FIX
   ========================= */
-
   .social-slideshow {
     padding: 1rem;
+    overflow-x: hidden;
   }
 
+  .social-slideshow iframe,
   .social-slide iframe {
+    width: 100% !important;
+    max-width: 100%;
     height: 320px;
   }
 
   /* =========================
-     DOTS CLEANUP
+     CLEANUP
   ========================= */
-
   .dots-container {
     display: none;
   }
+  
+}
+@media (max-width: 768px) {
 
+  /* =========================
+     PROJECT IMAGE SAFE FRAME
+  ========================= */
+
+  .slideshow-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .slideshow-container {
+    width: 100%;
+    height: 200px;          /* fixed mobile-safe height */
+    overflow: hidden;       /* prevents overflow */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;     /* key: keeps full image visible */
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+
+  /* =========================
+     HIDE PROJECT CAPTION (MOBILE)
+  ========================= */
+  .project-caption {
+    display: none !important;
+  }
+
+  /* =========================
+     ABOUT SECTION SPACING FIX
+  ========================= */
+  .about-me {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .about-me-text {
+    margin: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .about-me-text p {
+    text-align: center;
+  }
+
+  /* =========================
+     ABOUT IMAGE CENTER + CLEAN SIZE
+  ========================= */
+  .about-me-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .about-me-image img {
+    width: 75%;
+    max-width: 300px;
+    border-radius: 12px;
+  }
+
+  /* =========================
+     BUTTON CENTER + SPACING FIX
+  ========================= */
+  .resume-download {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .resume-download a {
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+  }
+	
+.social-slideshow {
+  width: 100%;
+  padding: 1rem 0.75rem 3rem;
+  overflow-x: hidden;
+}
+
+/* Make each slide expand properly */
+.social-slide {
+  width: 100%;
+  display: none;
+}
+
+/* Force iframes to be responsive */
+.social-slide iframe {
+  width: 100% !important;
+  max-width: 100%;
+  height: 500px;   /* expanded height for readability */
+  border-radius: 12px;
+}
+
+/* Instagram embed wrapper fix */
+.instagram-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Facebook embed fix */
+.social-slide iframe[src*="facebook"] {
+  height: 520px;
+}
+
+/* LinkedIn embeds often need more vertical space */
+.social-slide iframe[src*="linkedin"] {
+  height: 600px;
+}
 }

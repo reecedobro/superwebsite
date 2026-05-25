@@ -25,7 +25,7 @@
     <section class="about-me" id="about">
       <div class="about-me-text">
         <h2>About Me</h2>
-        <p>Hi! My name is Reece Morgan Dobro and I am a currently pursuing a Bachelors and Masters degree in <strong>Computer Engineering and Electrical Engineering at North Carolina State University.</strong>  I reside in Waxhaw, North Carolina and have had a passion for computers and electronics for as long as I can remember. I’m driven by curiosity and a love for solving real-world problems through hardware and software. Whether I’m implementing a raspberry pi or coordinating with a passionate group of engineers, I strive to blend creativity with technical precision. Let’s build something amazing together! </p>
+        <p>Hi! My name is Reece Morgan Dobro and I am a currently pursuing a Bachelors and Masters degree in <strong>Computer Engineering and Electrical Engineering at North Carolina State University.</strong>  I reside in Waxhaw, North Carolina and have had a passion for computers and electronics for as long as I can remember. I’m driven by curiosity and a love for solving real-world problems through hardware and software. Whether I’m implementing an automated cooling system or coordinating with a passionate group of engineers, I strive to blend my creativity with technical precision. Let’s build something amazing together! </p>
         </div>
       <div class="about-me-image">
         <img src="images/about-me.jpg" alt="Reece M. Dobro - About Me Image" class="fade-in-on-scroll">
@@ -314,7 +314,7 @@
 		  <h3>HackNC State</h3>
 		  <img src="images/hackncsu.jpg" alt="HackNC Event" />
 		  <p>
-			Served as a Logistics Organizer for HackNC State, supporting the coordination and execution of a 50+ hour hackathon event with 300+ participants. Developed a low-power RFID check-in system using a Raspberry Pi Pico to streamline participant tracking and automate registration workflows. Focused on system reliability, rapid deployment, and maintainability to ensure smooth event operations across multiple teams.
+			Served as a Logistics Organizer for HackNC State, supporting the coordination and execution of a 50+ hour hackathon even	t with 300+ participants. Developed a low-power RFID check-in system using a Raspberry Pi Pico to streamline participant tracking and automate registration workflows. Focused on system reliability, rapid deployment, and maintainability to ensure smooth event operations across multiple teams.
 		  </p>
 		</div>
 		<div class="org-details" id="org6">
@@ -337,38 +337,41 @@
     </footer>
 
  <script>
-// =========================
+ // =========================
 // FADE-IN ON SCROLL
 // =========================
 const fadeElements = document.querySelectorAll('.fade-in-on-scroll');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+if (fadeElements.length) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.5
   });
-}, {
-  threshold: 0.5
-});
 
-fadeElements.forEach(el => observer.observe(el));
+  fadeElements.forEach(el => observer.observe(el));
+}
 
 
 // =========================
 // HERO SCROLL INDICATOR
 // =========================
-window.addEventListener('scroll', () => {
-  const indicator = document.querySelector('.scroll-indicator');
-  if (!indicator) return;
+const indicator = document.querySelector('.scroll-indicator');
 
-  if (window.scrollY >= 250) {
-    indicator.classList.add('hidden');
-  } else {
-    indicator.classList.remove('hidden');
-  }
-});
+if (indicator) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= 250) {
+      indicator.classList.add('hidden');
+    } else {
+      indicator.classList.remove('hidden');
+    }
+  });
+}
 
 
 // =========================
@@ -381,6 +384,8 @@ function showSocialSlides(n) {
   let slides = document.getElementsByClassName("social-slide");
   let dots = document.getElementsByClassName("dot");
 
+  if (!slides.length) return;
+
   if (n > slides.length) socialSlideIndex = 1;
   if (n < 1) socialSlideIndex = slides.length;
 
@@ -389,10 +394,11 @@ function showSocialSlides(n) {
   }
 
   for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
+    if (dots[i]) dots[i].classList.remove("active");
   }
 
   slides[socialSlideIndex - 1].style.display = "block";
+
   if (dots[socialSlideIndex - 1]) {
     dots[socialSlideIndex - 1].classList.add("active");
   }
@@ -421,9 +427,9 @@ function createSlideshow(containerSelector, interval = 6000) {
   const slides = container.querySelectorAll(".slide");
   const dots = container.querySelectorAll(".dot");
 
-  function show(n) {
-    if (slides.length === 0) return;
+  if (!slides.length) return null;
 
+  function show(n) {
     if (n > slides.length) index = 1;
     if (n < 1) index = slides.length;
 
@@ -431,7 +437,10 @@ function createSlideshow(containerSelector, interval = 6000) {
     dots.forEach(d => d.classList.remove("active"));
 
     slides[index - 1].style.display = "block";
-    if (dots[index - 1]) dots[index - 1].classList.add("active");
+
+    if (dots[index - 1]) {
+      dots[index - 1].classList.add("active");
+    }
   }
 
   function next() {
@@ -445,53 +454,58 @@ function createSlideshow(containerSelector, interval = 6000) {
   }
 
   show(index);
-
   setInterval(next, interval);
 
   return { next, goTo };
 }
-	const writingButton = document.querySelector(".writing-button");
 
-window.addEventListener("scroll", () => {
-  if (!writingButton) return;
 
-  const scrollY = window.scrollY;
-  const windowHeight = window.innerHeight;
-  const docHeight = document.documentElement.scrollHeight;
+// =========================
+// WRITING BUTTON
+// =========================
+const writingButton = document.querySelector(".writing-button");
 
-  const nearBottom = scrollY + windowHeight >= docHeight - 500;
+if (writingButton) {
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
 
-  if (nearBottom) {
-    writingButton.classList.add("show");
-  } else {
-    writingButton.classList.remove("show");
-  }
-});
+    const nearBottom = scrollY + windowHeight >= docHeight - 500;
+
+    writingButton.classList.toggle("show", nearBottom);
+  });
+}
+
 
 // =========================
 // PROJECT SLIDESHOWS
 // =========================
-const table = createSlideshow(".table-slides", 7000);
-const mppt = createSlideshow(".mppt-slides", 7000);
-const rfid = createSlideshow(".rfid-slides", 7000);
+const table = document.querySelector(".table-slides")
+  ? createSlideshow(".table-slides", 7000)
+  : null;
+
+const mppt = document.querySelector(".mppt-slides")
+  ? createSlideshow(".mppt-slides", 7000)
+  : null;
+
+const rfid = document.querySelector(".rfid-slides")
+  ? createSlideshow(".rfid-slides", 7000)
+  : null;
 
 
 // =========================
-// ORGANIZATION HOVER LOGIC
+// ORGANIZATION LOGIC (FIXED)
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
   const logos = document.querySelectorAll('.org-logo');
   const details = document.querySelectorAll('.org-details');
-  const container = document.querySelector('.org-logos');
 
   function showOrg(id) {
-    details.forEach(d => {
-      d.classList.toggle('active', d.id === id);
-    });
-  }
-
-  function clearOrg() {
     details.forEach(d => d.classList.remove('active'));
+
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active');
   }
 
   logos.forEach(logo => {
@@ -504,22 +518,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Mobile tap
+    // Mobile tap (FIXED: prevents stacking bug)
     logo.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
         const target = document.getElementById(id);
-        target.classList.toggle('active');
+        if (!target) return;
+
+        const isActive = target.classList.contains('active');
+
+        // ALWAYS reset first
+        details.forEach(d => d.classList.remove('active'));
+
+        // then toggle correctly
+        if (!isActive) {
+          target.classList.add('active');
+        }
       }
     });
   });
-
-  // Desktop: keep last hovered (NO reset)
-  if (container) {
-    container.addEventListener('mouseleave', () => {
-      if (window.innerWidth <= 768) return;
-      // do nothing (sticky behavior)
-    });
-  }
 });
 </script>
 
